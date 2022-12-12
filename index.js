@@ -108,7 +108,28 @@ console.log("END TASK 1");
 */
 
 class Car {
-  
+  constructor(model, mpg) {
+    this.model = model;
+    this.milesPerGallon = mpg;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill (gallons) {
+    this.tank = this.tank + gallons;
+  }
+  drive(distance) {
+    const maxDist = this.milesPerGallon * this.tank;
+
+    if (distance <= maxDist) {
+      this.tank = this.tank - distance/this.milesPerGallon;
+      this.odometer = this.odometer + distance;
+    } else {
+      this.tank = 0;
+      this.odometer = this.odometer + maxDist;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  }
+
 }
 
 /*
