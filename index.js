@@ -43,9 +43,55 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
+// // class Person {
+//   constructor(personAttr) {
+//   this.name = personAttr.name;
+//   this.age = personAttr.age;
+//   this.stomach = new Array();
+//   }
+//   eat(someFood){
+//     if (this.stomach.length <= 10) {
+//     console.log(`${this.name} ate a ${someFood}`);
+//     this.stomach.push(someFood);
+//     } else {
+//     console.log(`${this.name} needs to poop before eating again`); 
+//     }
+//   }
+//   poop() {
+//     console.log(`ewwwwww, this dude ${this.name} just pooped and ${this.stomach} is EVERYWHERE!!!!!`); 
+//     this.stomach = [];
+//   }
+//   // }
+
 class Person {
-  
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString() {
+    return `${this.name}, ${this.age}`
+  }
 }
+
+const dude = new Person ('Jimmy', 36);
+console.log("BEGIN TASK 1");
+
+dude.eat('apple');
+
+console.log(dude);
+
+console.log(dude.toString());
+
+console.log("END TASK 1");
 
 /*
   TASK 2
